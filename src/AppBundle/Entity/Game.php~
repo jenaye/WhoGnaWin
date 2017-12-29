@@ -1,0 +1,82 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Game
+ *
+ * @ORM\Table(name="game")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\GameRepository")
+ */
+class Game
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="meteo")
+     */
+    private $meteo;
+
+
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="player1_score", type="integer")
+     */
+    private $player1_score;
+
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="player2_score", type="integer")
+     */
+    private $player2_score;
+
+
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Player", inversedBy="products")
+     * @ORM\JoinColumn(name="player_id_1", referencedColumnName="id")
+     */
+    private $player1;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Player", inversedBy="products")
+     * @ORM\JoinColumn(name="player_id_2", referencedColumnName="id")
+     */
+    private $player2;
+
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Tournament", inversedBy="products")
+     * @ORM\JoinColumn(name="tournament_id", referencedColumnName="id")
+     */
+    private $tournaments;
+
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+}
+
