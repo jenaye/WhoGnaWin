@@ -25,6 +25,32 @@ class Game
     /**
      * @var string
      *
+     * @ORM\Column(name="terrain")
+     */
+    private $terrain;
+
+    /**
+     * @return string
+     */
+    public function getTerrain()
+    {
+        return $this->terrain;
+    }
+
+    /**
+     * @param string $terrain
+     */
+    public function setTerrain($terrain)
+    {
+        $this->terrain = $terrain;
+    }
+
+
+
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="meteo")
      */
     private $meteo;

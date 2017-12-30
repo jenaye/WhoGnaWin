@@ -3,6 +3,7 @@
 use Behat\Behat\Context\SnippetAcceptingContext;
 use Behat\MinkExtension\Context\MinkContext;
 use Behat\Symfony2Extension\Context\KernelAwareContext;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Defines application features from the specific context.
@@ -29,4 +30,7 @@ class FeatureContext extends MinkContext implements KernelAwareContext, SnippetA
     {
         $this->kernel = $kernel;
     }
+
+
+
 }
