@@ -1,0 +1,12 @@
+default:
+    extensions:
+        Behat\Symfony2Extension:
+                kernel:
+                    bootstrap: "" # <-- add this
+        Behat\MinkExtension:
+            base_url: "http://localhost:8000/app_dev.php"
+            sessions:
+                default:
+                    symfony2: ~
+                javascript:
+                    selenium2: ~

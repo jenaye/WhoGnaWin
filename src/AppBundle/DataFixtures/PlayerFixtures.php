@@ -11,7 +11,7 @@ class PlayerFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
             $player = new Player();
-            $player->setName('Rafael Nada');
+            $player->setName('Rafael Nadal');
             $player->setAge(31);
             $manager->persist($player);
 
