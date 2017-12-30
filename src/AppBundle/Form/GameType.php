@@ -27,7 +27,7 @@ class GameType extends AbstractType
                     'Synthétique' => 'synthetique',
                     'Terre battue' => 'Terre-battue',
                 ],
-                'label' => 'Liste des terrains',
+                'label' => 'Type de terrains',
                 'attr' => [
                     'class' => '',
                     'placeholder' => 'Ex : terrain dur  ',
