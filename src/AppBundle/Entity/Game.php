@@ -168,23 +168,21 @@ class Game
      */
     private $player2_score;
 
-
-
     /**
-     * @ORM\ManyToOne(targetEntity="Player", inversedBy="products")
+     * @ORM\ManyToOne(targetEntity="Player")
      * @ORM\JoinColumn(name="player_id_1", referencedColumnName="id")
      */
     private $player1;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Player", inversedBy="products")
+     * @ORM\ManyToOne(targetEntity="Player")
      * @ORM\JoinColumn(name="player_id_2", referencedColumnName="id")
      */
     private $player2;
 
 
     /**
-     * @ORM\ManyToOne(targetEntity="Tournament", inversedBy="products")
+     * @ORM\ManyToOne(targetEntity="Tournament", inversedBy="game")
      * @ORM\JoinColumn(name="tournament_id", referencedColumnName="id")
      */
     private $tournaments;
