@@ -189,6 +189,13 @@ class Game
      */
     private $tournaments;
 
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date", type="datetime")
+     */
+    private $date;
+
 
     /**
      * Get id
@@ -205,8 +212,31 @@ class Game
      */
     public function __toString()
     {
-       return $this->getId();
+       return $this->getName();
     }
 
-}
 
+    /**
+     * Set date
+     *
+     * @param \DateTime $date
+     *
+     * @return Game
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    /**
+     * Get date
+     *
+     * @return \DateTime
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+}

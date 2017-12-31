@@ -25,6 +25,26 @@ class PlayerFixtures extends Fixture
             $player3->setAge(30);
             $manager->persist($player3);
 
+            $player4 = new Player();
+            $player4->setName('Alexandr Dolgopolov');
+            $player4->setAge(29);
+            $manager->persist($player4);
+
+            $player5 = new Player();
+            $player5->setName('Diego Schwartzman');
+            $player5->setAge(29);
+            $manager->persist($player5);
+
+            $player6 = new Player();
+            $player6->setName('Steve Johnson');
+            $player6->setAge(28);
+            $manager->persist($player6);
+
+            $player7 = new Player();
+            $player7->setName('Alex De Minaur');
+            $player7->setAge(18);
+            $manager->persist($player7);
+
             $manager->flush();
     }
 }

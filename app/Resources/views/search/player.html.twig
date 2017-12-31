@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Informations {{ player.name }}</h1>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nom</th>
+            <th>Age</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ player.id }}</td>
+                <td>{{ player.name }}</td>
+                <td>{{ player.age }}</td>
+
+            </tr>
+        {% for game in player.games %}
+            <tr>
+                <td>{{ game.id }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

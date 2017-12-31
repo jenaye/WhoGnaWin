@@ -22,6 +22,10 @@ class TournamentFixtures extends Fixture
             $tournament3->setName('Open d\'Australie');
             $manager->persist($tournament3);
 
+            $tournament4 = new Tournament();
+            $tournament4->setName('Open de brisbane');
+            $manager->persist($tournament4);
+
             $manager->flush();
     }
 }
