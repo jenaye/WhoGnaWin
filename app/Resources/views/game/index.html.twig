@@ -7,27 +7,23 @@
         <thead>
             <tr>
                 <th>Id</th>
+                <th>Terrain</th>
                 <th>Meteo</th>
                 <th>Player1_score</th>
                 <th>Player2_score</th>
+                <th>Date</th>
                 <th>Actions</th>
-                <th>Type de terrain</th>
-                <th>Joueur 1</th>
-                <th>Joueur 2</th>
-                <th>Tournoi</th>
             </tr>
         </thead>
         <tbody>
         {% for game in games %}
             <tr>
                 <td><a href="{{ path('game_show', { 'id': game.id }) }}">{{ game.id }}</a></td>
+                <td>{{ game.terrain }}</td>
                 <td>{{ game.meteo }}</td>
                 <td>{{ game.player1score }}</td>
                 <td>{{ game.player2score }}</td>
-                <td>{{ game.terrain }}</td>
-                <td>{{ game.player1 }}</td>
-                <td>{{ game.player2 }}</td>
-                <td>{{ game.tournaments.name }}</td>
+                <td>{% if game.date %}{{ game.date|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>
                     <ul>
                         <li>

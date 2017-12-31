@@ -42,8 +42,6 @@ class SearchController extends Controller
         $infoPlayer = $this->getDoctrine()
             ->getRepository('AppBundle:Player')
             ->getPlayerByName($request->get('playerName'));
-        dump($infoPlayer);
-        exit;
 
         return $this->render('search/player.html.twig', array(
             'player' => $infoPlayer,

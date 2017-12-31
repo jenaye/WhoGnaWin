@@ -10,6 +10,10 @@
                 <td>{{ game.id }}</td>
             </tr>
             <tr>
+                <th>Terrain</th>
+                <td>{{ game.terrain }}</td>
+            </tr>
+            <tr>
                 <th>Meteo</th>
                 <td>{{ game.meteo }}</td>
             </tr>
@@ -22,12 +26,8 @@
                 <td>{{ game.player2score }}</td>
             </tr>
             <tr>
-                <th>player1</th>
-                <td>{{ game.player1 }}</td>
-            </tr>
-            <tr>
-                <th>player2</th>
-                <td>{{ game.player2 }}</td>
+                <th>Date</th>
+                <td>{% if game.date %}{{ game.date|date('Y-m-d H:i:s') }}{% endif %}</td>
             </tr>
         </tbody>
     </table>
