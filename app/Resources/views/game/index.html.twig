@@ -1,17 +1,19 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Games list</h1>
+    <h1>Liste des matchs</h1>
 
     <table>
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Terrain</th>
-                <th>Meteo</th>
-                <th>Player1_score</th>
-                <th>Player2_score</th>
-                <th>Date</th>
+                <th>Type de terrain</th>
+                <th>Météo</th>
+                <th>Joueur 1</th>
+                <th>Joueur 2</th>
+                <th>Joueur 1 score</th>
+                <th>Joueur 2 score</th>
+                <th>Date de la rencontre</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -21,16 +23,18 @@
                 <td><a href="{{ path('game_show', { 'id': game.id }) }}">{{ game.id }}</a></td>
                 <td>{{ game.terrain }}</td>
                 <td>{{ game.meteo }}</td>
+                <td>{{ game.player1 }}</td>
+                <td>{{ game.player2 }}</td>
                 <td>{{ game.player1score }}</td>
                 <td>{{ game.player2score }}</td>
                 <td>{% if game.date %}{{ game.date|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('game_show', { 'id': game.id }) }}">show</a>
+                            <a href="{{ path('game_show', { 'id': game.id }) }}">afficher</a>
                         </li>
                         <li>
-                            <a href="{{ path('game_edit', { 'id': game.id }) }}">edit</a>
+                            <a href="{{ path('game_edit', { 'id': game.id }) }}">editer</a>
                         </li>
                     </ul>
                 </td>
@@ -41,7 +45,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('game_new') }}">Create a new game</a>
+            <a href="{{ path('game_new') }}">Créer une match</a>
         </li>
     </ul>
 {% endblock %}

@@ -1,13 +1,13 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Players list</h1>
+    <h1>Tous les joueurs</h1>
 
     <table>
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Name</th>
+                <th>Nom</th>
                 <th>Age</th>
                 <th>Actions</th>
             </tr>
@@ -21,10 +21,10 @@
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('player_show', { 'id': player.id }) }}">show</a>
+                            <a href="{{ path('player_show', { 'id': player.id }) }}">Afficher plus d'information</a>
                         </li>
                         <li>
-                            <a href="{{ path('player_edit', { 'id': player.id }) }}">edit</a>
+                            <a href="{{ path('player_edit', { 'id': player.id }) }}">Editer le joueur</a>
                         </li>
                     </ul>
                 </td>
@@ -35,7 +35,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('player_new') }}">Create a new player</a>
+            <a href="{{ path('player_new') }}">Créer un nouveau joueur</a>
         </li>
     </ul>
 {% endblock %}
