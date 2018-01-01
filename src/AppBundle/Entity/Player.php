@@ -3,6 +3,8 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * Player
@@ -23,14 +25,22 @@ class Player
 
     /**
      * @var string
-     *
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 50,
+     *      minMessage = "Le nom doit faire au moins {{ limit }} characters",
+     *      maxMessage = "le nom ne peut pas dépasser {{ limit }} characters"
+     * )
      * @ORM\Column(name="name", type="string", length=60, unique=true)
      */
     private $name;
 
     /**
      * @var int
-     *
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 2
+     * )
      * @ORM\Column(name="age", type="integer")
      */
     private $age;

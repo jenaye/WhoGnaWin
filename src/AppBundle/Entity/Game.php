@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Game
@@ -24,7 +25,7 @@ class Game
 
     /**
      * @var string
-     *
+     * @Assert\NotNull()
      * @ORM\Column(name="terrain")
      */
     private $terrain;
@@ -50,7 +51,7 @@ class Game
 
     /**
      * @var string
-     *
+     * @Assert\NotNull()
      * @ORM\Column(name="meteo")
      */
     private $meteo;

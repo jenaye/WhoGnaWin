@@ -25,4 +25,5 @@ bin/console do:sc:va --skip-sync
 
 Todo : Update Game view(index n show) to watch  who playing vs who
        finish search bar for player and continue player + tournament
+       add login system too
 

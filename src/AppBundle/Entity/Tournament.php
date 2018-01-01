@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Tournament
@@ -23,7 +24,12 @@ class Tournament
 
     /**
      * @var string
-     *
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 50,
+     *      minMessage = "Le tournoi doit faire au moins {{ limit }} characters",
+     *      maxMessage = "le tournoi ne peut pas dépasser {{ limit }} characters"
+     * )
      * @ORM\Column(name="name", type="string", length=60, nullable=true, unique=true)
      */
     private $name;
