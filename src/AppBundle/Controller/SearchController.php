@@ -2,13 +2,16 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Game;
 use AppBundle\Entity\Player;
 use AppBundle\Repository\PlayerRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\Config\Definition\Exception\Exception;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
 /**
  * Game controller.
@@ -39,14 +42,17 @@ class SearchController extends Controller
      */
     public function playerAction(Request $request){
 
-        $infoPlayer = $this->getDoctrine()
-            ->getRepository('AppBundle:Player')
-            ->getPlayerByName($request->get('playerName'));
-dump($infoPlayer);
-exit;
-        return $this->render('search/player.html.twig', array(
-            'player' => $infoPlayer,
-        ));
+        $player = $this->getDoctrine()->getRepository(Player::class)->getPlayerByName($request->query->get('playerName'));
+        if($player){
+            $games = $this->getDoctrine()->getRepository(Game::class)->findBy(['player1' => $player]) + $this->getDoctrine()->getRepository(Game::class)->findBy(['player2' => $player]);
+        }else{
+            throw new BadRequestHttpException('No player found with this name');
+        }
+
+        return $this->render('search/player.html.twig', [
+            'player' => $player,
+            'games' => $games
+        ]);
 
     }
 }

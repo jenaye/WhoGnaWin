@@ -18,9 +18,11 @@
                 <td>{{ player.age }}</td>
 
             </tr>
-        {% for game in player.games %}
+        {% for game in games %}
             <tr>
                 <td>{{ game.id }}</td>
+                <td>{{ game.meteo }}</td>
+                <td>{{ game.meteo }}</td>
             </tr>
         {% endfor %}
         </tbody>

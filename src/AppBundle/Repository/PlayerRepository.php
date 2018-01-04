@@ -19,13 +19,9 @@ class PlayerRepository extends \Doctrine\ORM\EntityRepository
     $queryBuilder = $this->createQueryBuilder('p');
 
     return $queryBuilder
-        ->leftJoin(Game::class, 'g', Join::WITH, $queryBuilder->expr()->orX(
-            $queryBuilder->expr()->eq('g.player1', 'p'),
-            $queryBuilder->expr()->eq('g.player2', 'p')
-        ))->addSelect('g')
         ->where($queryBuilder->expr()->like('p.name', ':name'))
         ->setParameter('name', '%'.$playerName.'%')
-        ->getQuery()->getResult();
+        ->getQuery()->getOneOrNullResult();
 }
 
     public function getPlayerByNameAndTournament($playerName, $tournamentName)

@@ -9,6 +9,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class GameType extends AbstractType
 {
+    const HUMIDE = 1;
     /**
      * {@inheritdoc}
      */
@@ -18,7 +19,7 @@ class GameType extends AbstractType
                 'required' => true,
                 'multiple' => false,
                 'choices' => [
-                    'Humide' => 'humide',
+                    'Humide' => self::HUMIDE,
                     'Sec' => 'sec',
                     'Vent' => 'vent',
                     'Ensoleiller' => 'ensoleiller',
@@ -28,7 +29,11 @@ class GameType extends AbstractType
                     'class' => '',
                     'placeholder' => 'Ex : humide',
                 ]])
-        ->add('player1_score')->add('player2_score')->add('player1')->add('player2')->add('tournaments')
+            ->add('player1_score')
+            ->add('player2_score')
+            ->add('player1')
+            ->add('player2')
+            ->add('tournaments')
             ->add('terrain', ChoiceType::class, [
                 'required' => true,
                 'multiple' => false,
@@ -45,7 +50,8 @@ class GameType extends AbstractType
                 'attr' => [
                     'class' => '',
                     'placeholder' => 'Ex : terrain dur  ',
-                ]])->add('date');
+                ]])
+            ->add('date');
     }/**
      * {@inheritdoc}
      */
