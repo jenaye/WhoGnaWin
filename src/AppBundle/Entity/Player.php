@@ -36,6 +36,13 @@ class Player
     private $name;
 
     /**
+     * @var string
+     * @ORM\Column(name="gender", type="string", length=10)
+     */
+    private $gender;
+
+
+    /**
      * @var int
      * @Assert\Length(
      *      min = 2,
@@ -103,7 +110,24 @@ class Player
     {
         return $this->age;
     }
-    
+
+    /**
+     * @return string
+     */
+    public function getGender()
+    {
+        return $this->gender;
+    }
+
+    /**
+     * @param string $gender
+     */
+    public function setGender($gender)
+    {
+        $this->gender = $gender;
+    }
+
+
     /**
      * method toostring
      */

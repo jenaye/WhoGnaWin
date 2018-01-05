@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Game;
+use AppBundle\Form\GameType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
@@ -34,13 +35,14 @@ class GameController extends Controller
     /**
      * Creates a new game entity.
      *
-     * @Route("/new", name="game_new")
+     * @Route("/new/{gender}", name="game_new")
      * @Method({"GET", "POST"})
      */
-    public function newAction(Request $request)
+    public function newAction(Request $request, $gender)
     {
         $game = new Game();
-        $form = $this->createForm('AppBundle\Form\GameType', $game);
+        $form = $this->createForm(GameType::class, $game, ['gender' => $gender]);
+
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

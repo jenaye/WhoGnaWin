@@ -45,7 +45,9 @@
 
     <ul>
         <li>
-            <a href="{{ path('game_new') }}">Créer une match</a>
+            <a href="{{ path('game_new', { 'gender': 'male' }) }}">Créer une match homme</a>
+            <a href="{{ path('game_new', { 'gender': 'female' }) }}">Créer une match femme</a>
+
         </li>
     </ul>
 {% endblock %}

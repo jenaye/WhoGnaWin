@@ -2,10 +2,14 @@
 
 namespace AppBundle\Form;
 
+use Doctrine\ORM\EntityManager;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Doctrine\ORM\EntityRepository;
+
 
 class GameType extends AbstractType
 {
@@ -15,6 +19,7 @@ class GameType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $gender = $options['gender'];
         $builder->add('meteo', ChoiceType::class, [
                 'required' => true,
                 'multiple' => false,
@@ -31,8 +36,20 @@ class GameType extends AbstractType
                 ]])
             ->add('player1_score')
             ->add('player2_score')
-            ->add('player1')
-            ->add('player2')
+            ->add('player1', EntityType::class, [
+                'class' => 'AppBundle\Entity\Player',
+                'query_builder' => function (EntityRepository $em) use ($gender) {
+                    return $em->createQueryBuilder('p')->where('p.gender = :gender')
+                        ->setParameter('gender', $gender);
+                }
+            ])
+            ->add('player2', EntityType::class, [
+                'class' => 'AppBundle\Entity\Player',
+                'query_builder' => function (EntityRepository $em) use ($gender) {
+                    return $em->createQueryBuilder('p')->where('p.gender = :gender')
+                        ->setParameter('gender', $gender);
+                }
+            ])
             ->add('tournaments')
             ->add('terrain', ChoiceType::class, [
                 'required' => true,
@@ -58,8 +75,9 @@ class GameType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Game'
+            'data_class' => 'AppBundle\Entity\Game',
         ));
+        $resolver->setRequired(['gender']);
     }
 
     /**
