@@ -44,7 +44,14 @@ class SearchController extends Controller
 
         $player = $this->getDoctrine()->getRepository(Player::class)->getPlayerByName($request->query->get('playerName'));
         if($player){
-            $games = $this->getDoctrine()->getRepository(Game::class)->findBy(['player1' => $player]) + $this->getDoctrine()->getRepository(Game::class)->findBy(['player2' => $player]);
+            $games[] = $this->getDoctrine()
+                    ->getRepository(Game::class)
+                    ->findBy(['player1' => $player]);
+
+            $games[] = $this->getDoctrine()
+                    ->getRepository(Game::class)
+                    ->findBy(['player2' => $player]);
+
         }else{
             throw new BadRequestHttpException('No player found with this name');
         }

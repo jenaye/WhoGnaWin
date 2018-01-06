@@ -78,7 +78,7 @@ class GameController extends Controller
     /**
      * Displays a form to edit an existing game entity.
      *
-     * @Route("/{id}/edit", name="game_edit")
+     * @Route("/{id}/edit/", name="game_edit")
      * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, Game $game)

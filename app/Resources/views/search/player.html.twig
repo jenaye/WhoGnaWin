@@ -1,30 +1,47 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Informations {{ player.name }}</h1>
+    <h1>Résultat de recherche pour :  {{ player.name }}</h1>
+    <p>ID : {{ player.id }}</p>
+    <p>Age : {{  player.age }}</p>
+    <p>Sexe : {{  player.gender }}</p>
 
     <table>
         <thead>
         <tr>
-            <th>Id</th>
-            <th>Nom</th>
-            <th>Age</th>
+            <th>ID match</th>
+            <th>Score joueur 1</th>
+            <th>Score joueur 2</th>
+            <th>Joueur 1</th>
+            <th>Joueur 2</th>
+            <th>Gagnant</th>
         </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>{{ player.id }}</td>
-                <td>{{ player.name }}</td>
-                <td>{{ player.age }}</td>
+        {% for matchs in games %}
+            {% for game in matchs %}
+        <tr>
+                <th>{{ game.id }}</th>
+                <th>{{ game.player1score }}</th>
+                <th>{{ game.player2score }}</th>
+                <th>{{ game.player1 }}</th>
+                <th>{{ game.player2 }}</th>
+            {% if(player == game.player1) %}
+                {% if(game.player1score > game.player2score) %}
+                    <th>Gagné</th>
+                {% endif %}
+                    <th>Perdu</th>
+            {% else %}
+                {% if(game.player1score < game.player2score) %}
+                    <th>Gagné</th>
+                {% endif %}
 
-            </tr>
-        {% for game in games %}
-            <tr>
-                <td>{{ game.id }}</td>
-                <td>{{ game.meteo }}</td>
-                <td>{{ game.meteo }}</td>
+            {% endif %}
+
+        {% endfor %}
             </tr>
         {% endfor %}
+
         </tbody>
     </table>
 {% endblock %}
