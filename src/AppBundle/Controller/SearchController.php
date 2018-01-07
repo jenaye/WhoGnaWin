@@ -52,13 +52,43 @@ class SearchController extends Controller
                     ->getRepository(Game::class)
                     ->findBy(['player2' => $player]);
 
+            $count = 0;
+            $winned = 0;
+            foreach ($games as $key) {
+
+                foreach ($key as $item) {
+                    if ($player == $item->getPlayer1()) {
+                   //     echo "Nadal est à gauche => ";
+                        if ($item->getPlayer1Score() > $item->getPlayer2Score()) {
+                         //   echo "le player a gauche a gagné <br/>, Nadal gagne 1 point : $matchGagné ";
+                            $winned++;
+
+                        } else {
+                        //    echo "le player de droite à gagné<br/>";
+                        }
+                    } else {
+                     //   echo "Nadal est a droite =>";
+                        if ($item->getPlayer1Score() < $item->getPlayer2Score()) {
+                         //   echo "le player a gauche a perdu <br/>";
+                            $winned++;
+                        } else {
+                         //   echo "le player de droite à gagné<br/>, Nadal gagne 1 point: $matchGagné";
+
+                        }
+                    }
+                    $count++;
+                }
+            }
+
         }else{
             throw new BadRequestHttpException('No player found with this name');
         }
 
         return $this->render('search/player.html.twig', [
             'player' => $player,
-            'games' => $games
+            'games' => $games,
+            'total' => $count,
+            'winned' => $winned
         ]);
 
     }
