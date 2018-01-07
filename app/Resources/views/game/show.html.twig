@@ -45,7 +45,7 @@
             <a href="{{ path('game_index') }}">Retour a la liste</a>
         </li>
         <li>
-            <a href="{{ path('game_edit', { 'id': game.id }) }}">Edition</a>
+            <a href="{{ path('game_edit', { 'id': game.id, 'gender': game.player1.getGender  }) }}">Edition</a>
         </li>
         <li>
             {{ form_start(delete_form) }}
