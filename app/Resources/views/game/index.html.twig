@@ -20,7 +20,7 @@
         <tbody>
         {% for game in games %}
             <tr>
-                <td><a href="{{ path('game_show', { 'id': game.id }) }}">{{ game.id }}</a></td>
+                <td><a href="{{ path('game_show', { 'id': game.id}) }}">{{ game.id }}</a></td>
                 <td>{{ game.terrain }}</td>
                 <td>{{ game.meteo }}</td>
                 <td>{{ game.player1 }}</td>
@@ -34,7 +34,7 @@
                             <a href="{{ path('game_show', { 'id': game.id }) }}">afficher</a>
                         </li>
                         <li>
-                            <a href="{{ path('game_edit', { 'id': game.id }) }}">editer</a>
+                            <a href="{{ path('game_edit', { 'id': game.id,'gender': game.player1.getGender }) }}">editer</a>
                         </li>
                     </ul>
                 </td>

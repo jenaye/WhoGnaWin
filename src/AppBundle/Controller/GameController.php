@@ -78,13 +78,13 @@ class GameController extends Controller
     /**
      * Displays a form to edit an existing game entity.
      *
-     * @Route("/{id}/edit/", name="game_edit")
+     * @Route("/{id}/edit/{gender}", name="game_edit")
      * @Method({"GET", "POST"})
      */
-    public function editAction(Request $request, Game $game)
+    public function editAction(Request $request, Game $game, $gender)
     {
         $deleteForm = $this->createDeleteForm($game);
-        $editForm = $this->createForm('AppBundle\Form\GameType', $game);
+        $editForm = $this->createForm(GameType::class, $game, ['gender' => $gender]);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
