@@ -4,6 +4,7 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\Game;
 use AppBundle\Entity\Player;
+use AppBundle\Form\SearchType;
 use AppBundle\Repository\PlayerRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -91,5 +92,26 @@ class SearchController extends Controller
             'winned' => $winned
         ]);
 
+    }
+
+    /**
+     * List game of player vs other player
+     *
+     * @Route("/all/{gender}", name="search_player_vs_player")
+     * @Method("GET")
+     */
+    public function CombinedAction(Request $request,$gender){
+        $form = $this->createForm(SearchType::class,null,['gender' => $gender]);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            return $this->redirectToRoute('game_show');
+        }
+
+        return $this->render('search/player_vs_player.html.twig', [
+            'form' => $form->createView(),
+        ]);
     }
 }
