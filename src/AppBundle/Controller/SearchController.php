@@ -102,16 +102,10 @@ class SearchController extends Controller
      */
     public function CombinedAction(Request $request,$gender){
         $form = $this->createForm(SearchType::class,null,['gender' => $gender]);
-
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-
-            return $this->redirectToRoute('game_show');
-        }
-
         return $this->render('search/player_vs_player.html.twig', [
             'form' => $form->createView(),
         ]);
     }
+
+    // think to create post method, who call function in repository with all parameters to find everygame from player1 vs player2
 }
