@@ -38,7 +38,8 @@ class SearchType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => 'AppBundle\Entity\Game'
+            'data_class' => 'AppBundle\Entity\Game',
+            'csrf_protection' => false,
         ]);
         $resolver->setRequired(['gender']);
     }

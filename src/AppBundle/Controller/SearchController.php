@@ -107,8 +107,9 @@ class SearchController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-           $player1 =  $form->getData();
-           dump($player1);
+           $data =  $form->getData();
+
+           dump($data);
         }
         return $this->render('search/player_vs_player.html.twig', [
             'form' => $form->createView(),
