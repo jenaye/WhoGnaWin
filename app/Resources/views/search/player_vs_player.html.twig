@@ -2,14 +2,8 @@
 
 {% block body %}
 
-        {% spaceless %}
-                <ul {{ block('widget_container_attributes') }}>
-                    {% for child in form %}
-                        <li>
-                            {{ form_widget(child) }}
-                            {{ form_label(child) }}
-                        </li>
-                    {% endfor %}
-                </ul>
-        {% endspaceless %}
+        {{ form_start(form) }}
+                {{ form_widget(form) }}
+        <button type="submit">Rechercher</button>
+        {{ form_end(form) }}
 {% endblock %}
