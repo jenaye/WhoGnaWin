@@ -1,6 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <br/>
+    <div class="alert alert-dismissible alert-warning">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <h4 class="alert-heading">Attention!</h4>
+        <p class="mb-0">Le nom dans le champ doit etre assez proche du vrai nom</p>
+    </div>
+
 <form method="GET" action="{{ path('search_player_by_name_result') }}">
 <div id="search_box">
     <input type="text" name="playerName" placeholder="Nom du joueur" />
     <input type="submit">
 </div>
     </form>
+
+{% endblock %}

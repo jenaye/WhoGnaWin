@@ -43,7 +43,8 @@ class SearchController extends Controller
      */
     public function playerAction(Request $request){
 
-        $player = $this->getDoctrine()->getRepository(Player::class)->getPlayerByName($request->query->get('playerName'));
+        $player = $this->getDoctrine()->getRepository(Player::class)
+            ->getPlayerByName($request->query->get('playerName'));
         if($player){
             $games[] = $this->getDoctrine()
                     ->getRepository(Game::class)
@@ -55,6 +56,7 @@ class SearchController extends Controller
 
             $count = 0;
             $winned = 0;
+
             foreach ($games as $key) {
 
                 foreach ($key as $item) {
@@ -81,7 +83,8 @@ class SearchController extends Controller
                 }
             }
 
-        }else{
+        } else {
+
             throw new BadRequestHttpException('No player found with this name');
         }
 
@@ -94,31 +97,4 @@ class SearchController extends Controller
 
     }
 
-    /**
-     * List game of player vs other player
-     *
-     * @Route("/all/{gender}", name="search_player_vs_player")
-     */
-    public function CombinedAction(Request $request,$gender){
-        $form = $this->createForm(SearchType::class,null,[
-            'gender' => $gender
-        ]);
-
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-           $data =  $form->getData();
-
-           dump($data);
-        }
-        return $this->render('search/player_vs_player.html.twig', [
-            'form' => $form->createView(),
-        ]);
-    }
-
-
-
-    // think to create post method, who call function in repository with all parameters to find everygame from player1 vs player2
-    // https://symfony.com/doc/current/form/create_custom_field_type.html
-    // http://symfony.com/doc/current/reference/forms/types/entity.html
 }

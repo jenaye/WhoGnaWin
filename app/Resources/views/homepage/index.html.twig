@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="jumbotron">
+        <h1 class="display-3">Bienvenue sur l'app {{ user }}</h1>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card text-white bg-secondary mb-3" style="max-width: 20rem;">
+                <div class="card-header">Gestion Matchs</div>
+                <div class="card-body">
+                    <p class="lead">
+                        <a class="btn btn-primary btn-lg" href="#" role="button">Ajouter un match homme</a>
+                    </p>
+                    <p class="lead">
+                        <a class="btn btn-primary btn-lg" href="#" role="button">Ajouter un match femme</a>
+                    </p>
+                    <p class="lead">
+                        <a class="btn btn-primary btn-lg" href="{{ path('game_index') }}" role="button">Voir tous les matchs</a>
+                    </p>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-white bg-secondary mb-3" style="max-width: 20rem;">
+                <div class="card-header">Gestion Joueurs</div>
+                <div class="card-body">
+                    <p class="lead">
+                        <a class="btn btn-primary btn-lg" href="#" role="button">Ajouter un Joueur</a>
+                    </p>
+                    <p class="lead">
+                        <a class="btn btn-primary btn-lg" href="{{ path('player_index') }}" role="button">Voir tous les joueurs</a>
+                    </p>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-white bg-secondary mb-3" style="max-width: 20rem;">
+                <div class="card-header">Gestion Tournois</div>
+                <div class="card-body">
+                    <p class="lead">
+                        <a class="btn btn-primary btn-lg" href="#" role="button">Ajouter un tournoi</a>
+                    </p>
+                    <p class="lead">
+                        <a class="btn btn-primary btn-lg" href="{{ path('tournament_index') }}" role="button">Voir tous les tournois</a>
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+{% endblock %}

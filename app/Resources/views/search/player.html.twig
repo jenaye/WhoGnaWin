@@ -12,10 +12,12 @@
         <thead>
         <tr>
             <th>ID match</th>
+            <th>Date du match</th>
             <th>Score joueur 1</th>
             <th>Score joueur 2</th>
             <th>Joueur 1</th>
             <th>Joueur 2</th>
+            <th>Type de terrain</th>
             <th>Gagnant</th>
         </tr>
         </thead>
@@ -24,10 +26,12 @@
             {% for game in matchs %}
         <tr>
                 <th>{{ game.id }}</th>
+                <th>{{ game.date|date("m/d/Y") }}</th>
                 <th>{{ game.player1score }}</th>
                 <th>{{ game.player2score }}</th>
                 <th>{{ game.player1 }}</th>
                 <th>{{ game.player2 }}</th>
+                <th>{{ game.terrain }}</th>
             {% if(player == game.player1) %}
                 {% if(game.player1score > game.player2score) %}
                     <th>Gagné</th>
