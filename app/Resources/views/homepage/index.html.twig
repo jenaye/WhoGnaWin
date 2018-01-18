@@ -10,10 +10,10 @@
                 <div class="card-header">Gestion Matchs</div>
                 <div class="card-body">
                     <p class="lead">
-                        <a class="btn btn-primary btn-lg" href="#" role="button">Ajouter un match homme</a>
+                        <a class="btn btn-primary btn-lg" href="{{ path('game_new', { 'gender': 'male' }) }}" role="button">Ajouter un match homme</a>
                     </p>
                     <p class="lead">
-                        <a class="btn btn-primary btn-lg" href="#" role="button">Ajouter un match femme</a>
+                        <a class="btn btn-primary btn-lg" href="{{ path('game_new', { 'gender': 'female' }) }}" role="button">Ajouter un match femme</a>
                     </p>
                     <p class="lead">
                         <a class="btn btn-primary btn-lg" href="{{ path('game_index') }}" role="button">Voir tous les matchs</a>
@@ -27,7 +27,7 @@
                 <div class="card-header">Gestion Joueurs</div>
                 <div class="card-body">
                     <p class="lead">
-                        <a class="btn btn-primary btn-lg" href="#" role="button">Ajouter un Joueur</a>
+                        <a class="btn btn-primary btn-lg" href="{{ path('player_new') }}" role="button">Ajouter un Joueur</a>
                     </p>
                     <p class="lead">
                         <a class="btn btn-primary btn-lg" href="{{ path('player_index') }}" role="button">Voir tous les joueurs</a>
@@ -41,7 +41,7 @@
                 <div class="card-header">Gestion Tournois</div>
                 <div class="card-body">
                     <p class="lead">
-                        <a class="btn btn-primary btn-lg" href="#" role="button">Ajouter un tournoi</a>
+                        <a class="btn btn-primary btn-lg" href="{{ path('tournament_new') }}" role="button">Ajouter un tournoi</a>
                     </p>
                     <p class="lead">
                         <a class="btn btn-primary btn-lg" href="{{ path('tournament_index') }}" role="button">Voir tous les tournois</a>

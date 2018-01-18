@@ -2,13 +2,12 @@
 
 {% block body %}
     <h1>Résultat de recherche pour :  {{ player.name }}</h1>
-    <p>ID : {{ player.id }}</p>
-    <p>Age : {{  player.age }}</p>
+    <p>Age : {{  player.age }} ans</p>
     <p>Sexe : {{  player.gender }}</p>
 
-    <p>Nombre de match jouer : {{ total }} Match gagné : {{ winned }} match perdu : {{ total-winned }}</p>
+    <p>Nombre de match joué : {{ total }} <br/>Match gagné : {{ winned }} <br/>match perdu : {{ total-winned }}</p>
     Winrate : {{ winned/total*100 }}%
-    <table>
+    <table class="table table-hover">
         <thead>
         <tr>
             <th>ID match</th>

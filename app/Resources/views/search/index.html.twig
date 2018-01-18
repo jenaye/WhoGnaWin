@@ -9,10 +9,14 @@
     </div>
 
 <form method="GET" action="{{ path('search_player_by_name_result') }}">
-<div id="search_box">
-    <input type="text" name="playerName" placeholder="Nom du joueur" />
-    <input type="submit">
-</div>
+
+    <legend>Recherche des matchs</legend>
+    <div class="form-group">
+        <input type="text" name="playerName" placeholder="Nom du joueur" class="form-control" aria-describedby="emailHelp">
+        <small id="emailHelp" class="form-text text-muted">le résultat de cette recherche n'est pas enregistré</small>
+    </div>
+
+    <input class="btn btn-primary" type="submit">
     </form>
 
 {% endblock %}
