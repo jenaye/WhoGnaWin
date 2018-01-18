@@ -9,7 +9,13 @@ php bin/console s:r
 
 ```
 
-think to create database too, is there command to load some default data
+Build database:
+
+```
+php bin/console doctrine:database:drop --force
+php bin/console doctrine:database:create
+php bin/console doctrine:schema:update --force
+```
 
 ```
 php bin/console doctrine:fixtures:load
