@@ -6,6 +6,7 @@ use AppBundle\Entity\Player;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 
 /**
  * Player controller.
@@ -17,30 +18,33 @@ class PlayerController extends Controller
     /**
      * Lists all player entities.
      *
-     * @Route("/", name="player_index")
+     * @Route("/lf/{gender}", name="player_index")
      * @Method("GET")
      */
-    public function indexAction()
+    public function indexAction(Request $request, $gender)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $players = $em->getRepository('AppBundle:Player')->findAll();
+        $players = $em->getRepository('AppBundle:Player')->getPlayerByGender($gender);
 
-        return $this->render('player/index.html.twig', array(
-            'players' => $players,
-        ));
+            return $this->render('player/index.html.twig', array(
+                'players' => $players,
+            ));
+
+
+
     }
 
     /**
      * Creates a new player entity.
      *
-     * @Route("/new", name="player_new")
+     * @Route("/new/{gender}", name="player_new")
      * @Method({"GET", "POST"})
      */
-    public function newAction(Request $request)
+    public function newAction(Request $request, $gender)
     {
         $player = new Player();
-        $form = $this->createForm('AppBundle\Form\PlayerType', $player);
+        $form = $this->createForm('AppBundle\Form\PlayerType', $player, ['gender' => $gender]);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -76,19 +80,20 @@ class PlayerController extends Controller
     /**
      * Displays a form to edit an existing player entity.
      *
-     * @Route("/{id}/edit", name="player_edit")
+     * @Route("/{id}/edit/{gender}", name="player_edit")
      * @Method({"GET", "POST"})
      */
-    public function editAction(Request $request, Player $player)
+    public function editAction(Request $request, Player $player, $gender)
     {
         $deleteForm = $this->createDeleteForm($player);
-        $editForm = $this->createForm('AppBundle\Form\PlayerType', $player);
+        $editForm = $this->createForm('AppBundle\Form\PlayerType', $player, ['gender' => $gender ]);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('player_edit', array('id' => $player->getId()));
+            return $this->redirectToRoute('player_edit', ['id' => $player->getId(),
+                'gender' =>  $player->getGender() ]);
         }
 
         return $this->render('player/edit.html.twig', array(

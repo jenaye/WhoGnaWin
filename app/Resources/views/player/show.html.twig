@@ -20,7 +20,7 @@
         </tbody>
     </table>
 
-            <a class="btn btn-primary form-control" href="{{ path('player_index') }}">Retour a la liste des joueurs</a>
+            <a class="btn btn-primary form-control" href="{{ path('player_index', {'gender': 'Male'}) }}">Retour a la liste des joueurs</a>
 
             <a class="btn btn-warning form-control"  href="{{ path('player_edit', { 'id': player.id }) }}">Editer</a>
 

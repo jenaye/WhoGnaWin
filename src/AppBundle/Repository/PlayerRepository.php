@@ -24,6 +24,15 @@ class PlayerRepository extends \Doctrine\ORM\EntityRepository
         ->getQuery()->getOneOrNullResult();
 }
 
+    public function getPlayerByGender($gender){
+        $queryBuilder = $this->createQueryBuilder('p');
+
+        return $queryBuilder
+            ->where($queryBuilder->expr()->like('p.gender', ':sex'))
+            ->setParameter('sex', '%'.$gender.'%')
+            ->getQuery()->getResult();
+    }
+
     public function getPlayerByNameAndTournament($playerName, $tournamentName)
     {
     	$parameters = [

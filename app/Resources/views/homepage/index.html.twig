@@ -25,10 +25,13 @@
                 <div class="card-header">Gestion Joueurs</div>
                 <div class="card-body">
                     <p class="lead">
-                        <a class="btn btn-primary btn-lg" href="{{ path('player_new') }}" role="button">Ajouter un Joueur</a>
+                        <a class="btn btn-primary btn-lg" href="{{ path('player_new' ,{'gender': 'Male'}) }}" role="button">Ajouter un Joueur</a>
                     </p>
                     <p class="lead">
-                        <a class="btn btn-primary btn-lg" href="{{ path('player_index') }}" role="button">Voir tous les joueurs</a>
+                        <a class="btn btn-primary btn-lg" href="{{ path('player_index',  { 'gender': 'Female'  }) }}" role="button">Voir toutes les femmes</a>
+                    </p>
+                    <p class="lead">
+                        <a class="btn btn-primary btn-lg" href="{{ path('player_index',  { 'gender': 'Male'  }) }}" role="button">Voir tous les hommes</a>
                     </p>
 
                 </div>
@@ -49,8 +52,5 @@
             </div>
         </div>
     </div>
-    </br>
-
-        <a  href="{{ path('search_player_by_name_get') }}" class="btn btn-primary btn-lg btn-block">Rechercher un joueur</a>
     </div>
 {% endblock %}

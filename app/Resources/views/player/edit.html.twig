@@ -10,7 +10,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('player_index') }}">Retour à la liste des joueurs</a>
+            <a href="{{ path('player_index', { 'gender': player.gender}) }}">Retour à la liste des joueurs</a>
         </li>
         <li>
             {{ form_start(delete_form) }}

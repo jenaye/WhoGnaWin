@@ -8,6 +8,6 @@
         <input class="form-control btn btn-primary" type="submit" value="Créer" />
     {{ form_end(form) }}
 
-    <a class="form-control btn btn-primary" href="{{ path('player_index') }}">Retour a la liste des joueurs</a>
+    <a class="form-control btn btn-primary" href="{{ path('player_index', {'gender': 'Male'}) }}">Retour a la liste des joueurs</a>
 
 {% endblock %}
