@@ -1,6 +1,7 @@
 <?php
 
 use Behat\Behat\Context\SnippetAcceptingContext;
+use Behat\Gherkin\Node\PyStringNode;
 use Behat\MinkExtension\Context\MinkContext;
 use Behat\Symfony2Extension\Context\KernelAwareContext;
 use Symfony\Component\HttpFoundation\Request;
@@ -30,7 +31,5 @@ class FeatureContext extends MinkContext implements KernelAwareContext, SnippetA
     {
         $this->kernel = $kernel;
     }
-
-
 
 }

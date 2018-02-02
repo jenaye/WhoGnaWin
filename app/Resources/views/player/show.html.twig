@@ -22,7 +22,7 @@
 
             <a class="btn btn-primary form-control" href="{{ path('player_index', {'gender': 'Male'}) }}">Retour a la liste des joueurs</a>
 
-            <a class="btn btn-warning form-control"  href="{{ path('player_edit', { 'id': player.id }) }}">Editer</a>
+            <a class="btn btn-warning form-control"  href="{{ path('player_edit', { 'id': player.id, 'gender': player.gender}) }}">Editer</a>
 
             {{ form_start(delete_form) }}
                 <input class="form-control btn btn-danger" type="submit" value="Supprimer">

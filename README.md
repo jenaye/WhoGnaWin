@@ -1,4 +1,4 @@
-Symfony Standard Edition
+Symfony Standard Edition (3.4)
 ========================
 
 # Install #
