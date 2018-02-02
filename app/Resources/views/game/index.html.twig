@@ -3,6 +3,11 @@
 {% block body %}
     <h1>Liste des matchs</h1>
 
+
+    <a class="btn btn-primary" href="{{ path('game_new', { 'gender': 'male' }) }}">Créer un  match homme</a>
+    <a class="btn btn-primary"  href="{{ path('game_new', { 'gender': 'female' }) }}">Créer un match femme</a>
+    <br/><br/>
+
     <table class="table table-hover">
         <thead>
             <tr>
@@ -31,10 +36,10 @@
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('game_show', { 'id': game.id }) }}">afficher</a>
+                            <a class="badge badge-primary" href="{{ path('game_show', { 'id': game.id }) }}">afficher</a>
                         </li>
                         <li>
-                            <a href="{{ path('game_edit', { 'id': game.id,'gender': game.player1.getGender }) }}">editer</a>
+                            <a class="badge badge-warning" href="{{ path('game_edit', { 'id': game.id,'gender': game.player1.getGender }) }}">editer</a>
                         </li>
                     </ul>
                 </td>
@@ -42,12 +47,4 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('game_new', { 'gender': 'male' }) }}">Créer une match homme</a><br/>
-            <a href="{{ path('game_new', { 'gender': 'female' }) }}">Créer une match femme</a>
-
-        </li>
-    </ul>
 {% endblock %}

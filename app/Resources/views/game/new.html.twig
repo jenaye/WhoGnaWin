@@ -1,12 +1,13 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Créer une match</h1>
-
+    <h1>Créer un match</h1>
+<div class="form-group">
     {{ form_start(form) }}
         {{ form_widget(form) }}
         <input type="submit" value="Créer" />
     {{ form_end(form) }}
+    </div>
 
     <ul>
         <li>

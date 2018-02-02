@@ -16,16 +16,11 @@
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('tournament_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('tournament_edit', { 'id': tournament.id }) }}">Edit</a>
-        </li>
-        <li>
+            <a class="btn btn-primary form-control" href="{{ path('tournament_index') }}">Back to the list</a>
+
+            <a class="btn btn-primary form-control" href="{{ path('tournament_edit', { 'id': tournament.id }) }}">Edit</a>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+                <input class="form-control" type="submit" value="Delete">
             {{ form_end(delete_form) }}
         </li>
     </ul>

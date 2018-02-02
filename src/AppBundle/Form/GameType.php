@@ -31,13 +31,24 @@ class GameType extends AbstractType
                 ],
                 'label' => 'Metéo',
                 'attr' => [
-                    'class' => '',
+                    'class' => 'form-control',
                     'placeholder' => 'Ex : humide',
                 ]])
-            ->add('player1_score')
-            ->add('player2_score')
+            ->add('player1_score',null ,[
+                'attr' => [
+                    'class' => 'form-control',
+                ]
+            ])
+            ->add('player2_score',null ,[
+                'attr' => [
+                    'class' => 'form-control',
+                ]
+            ])
             ->add('player1', EntityType::class, [
                 'class' => 'AppBundle\Entity\Player',
+                'attr' => [
+                    'class' => 'form-control',
+                ],
                 'query_builder' => function (EntityRepository $em) use ($gender) {
                     return $em->createQueryBuilder('p')->where('p.gender = :gender')
                         ->setParameter('gender', $gender);
@@ -45,12 +56,19 @@ class GameType extends AbstractType
             ])
             ->add('player2', EntityType::class, [
                 'class' => 'AppBundle\Entity\Player',
+                'attr' => [
+                    'class' => 'form-control',
+                ],
                 'query_builder' => function (EntityRepository $em) use ($gender) {
                     return $em->createQueryBuilder('p')->where('p.gender = :gender')
                         ->setParameter('gender', $gender);
                 }
             ])
-            ->add('tournaments')
+            ->add('tournaments',null ,[
+                'attr' => [
+                    'class' => 'form-control',
+                ]
+            ])
             ->add('terrain', ChoiceType::class, [
                 'required' => true,
                 'multiple' => false,
@@ -65,7 +83,7 @@ class GameType extends AbstractType
                 ],
                 'label' => 'Type de terrains',
                 'attr' => [
-                    'class' => '',
+                    'class' => 'form-control',
                     'placeholder' => 'Ex : terrain dur  ',
                 ]])
             ->add('date');

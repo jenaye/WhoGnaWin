@@ -3,7 +3,7 @@
 {% block body %}
     <h1>Joueur {{ player.id }}</h1>
 
-    <table>
+    <table class="table table-hover">
         <tbody>
             <tr>
                 <th>Id</th>
@@ -20,17 +20,12 @@
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('player_index') }}">Retour a la liste des joueurs</a>
-        </li>
-        <li>
-            <a href="{{ path('player_edit', { 'id': player.id }) }}">Editer</a>
-        </li>
-        <li>
+            <a class="btn btn-primary form-control" href="{{ path('player_index') }}">Retour a la liste des joueurs</a>
+
+            <a class="btn btn-warning form-control"  href="{{ path('player_edit', { 'id': player.id }) }}">Editer</a>
+
             {{ form_start(delete_form) }}
-                <input type="submit" value="Supprimer">
+                <input class="form-control btn btn-danger" type="submit" value="Supprimer">
             {{ form_end(delete_form) }}
-        </li>
-    </ul>
+
 {% endblock %}

@@ -3,6 +3,7 @@
 namespace AppBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -13,7 +14,25 @@ class PlayerType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name')->add('age');
+        $builder->add('name',null ,[
+            'attr' => [
+                'class' => 'form-control',
+            ]
+        ])->add('age',null ,[
+            'attr' => [
+                'class' => 'form-control',
+            ]
+        ])->add('gender', ChoiceType::class, [
+            'required' => true,
+            'multiple' => false,
+            'choices' => [
+                'Homme' => 'Male',
+                'Femme' => 'Female',
+            ],
+            'label' => 'Sexe',
+            'attr' => [
+                'class' => 'form-control',
+            ]]);
     }/**
      * {@inheritdoc}
      */

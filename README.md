@@ -30,6 +30,3 @@ bin/console do:sc:va --skip-sync
 
 
 Todo : add player vs player search bar
-       add login system too
-       add design 
-       add 
