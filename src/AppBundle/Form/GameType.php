@@ -13,7 +13,11 @@ use Doctrine\ORM\EntityRepository;
 
 class GameType extends AbstractType
 {
-    const HUMIDE = 1;
+    const HUMIDE = 'humide';
+    const SEC = 'sec';
+    const VENT = 'vent';
+    const ENSOLEILLER = 'ensoleiller';
+
     /**
      * {@inheritdoc}
      */
@@ -25,9 +29,9 @@ class GameType extends AbstractType
                 'multiple' => false,
                 'choices' => [
                     'Humide' => self::HUMIDE,
-                    'Sec' => 'sec',
-                    'Vent' => 'vent',
-                    'Ensoleiller' => 'ensoleiller',
+                    'Sec' => self::SEC,
+                    'Vent' => self::VENT,
+                    'Ensoleiller' => self::ENSOLEILLER,
                 ],
                 'label' => 'Metéo',
                 'attr' => [
