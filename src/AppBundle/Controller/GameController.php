@@ -90,7 +90,7 @@ class GameController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('game_edit', array('id' => $game->getId()));
+            return $this->redirectToRoute('game_edit', array('id' => $game->getId(), 'gender' => $gender));
         }
 
         return $this->render('game/edit.html.twig', array(

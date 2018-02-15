@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/html">
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}WhognaWin - {% endblock %}</title>
         {% block stylesheets %}
             <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">
         {% endblock %}
@@ -16,21 +16,23 @@
             <div class="collapse navbar-collapse" id="navbarColor03">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="{{ path('search_player_by_name_get') }}">Recherche un joueur</a>
+                        <a class="nav-link" href="{{ path('search_player_by_name_get') }}">Rechercher un joueur</a>
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="{{ path('game_index') }}">Voir tous les matchs</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="{{ path('player_index',  { 'gender': 'Female'  }) }}">Voir tous les joueurs Femme</a>
+                        <a class="nav-link" href="{{ path('player_index',  { 'gender': 'Female'  }) }}">Liste des joueuses</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="{{ path('player_index',  { 'gender': 'Male'  }) }}">Voir tous les joueurs Homme</a>
+                        <a class="nav-link" href="{{ path('player_index',  { 'gender': 'Male'  }) }}">Liste des joueurs</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{ path('tournament_index') }}">Voir les tournois</a>
                     </li>
                 </ul>
             </div>
         </nav>
-        </br>
     </head>
     <body>
     <div class="container">

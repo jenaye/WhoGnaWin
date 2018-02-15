@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-
+{% block title %}WhognaWin - {{ tournament.name }}{% endblock %}
 {% block body %}
     <h1>Tournament</h1>
 
@@ -18,9 +18,9 @@
 
             <a class="btn btn-primary form-control" href="{{ path('tournament_index') }}">Back to the list</a>
 
-            <a class="btn btn-primary form-control" href="{{ path('tournament_edit', { 'id': tournament.id }) }}">Edit</a>
+            <a class="btn btn-warning form-control" href="{{ path('tournament_edit', { 'id': tournament.id }) }}">Edit</a>
             {{ form_start(delete_form) }}
-                <input class="form-control" type="submit" value="Delete">
+                <input class="form-control btn btn-danger" type="submit" value="Delete">
             {{ form_end(delete_form) }}
         </li>
     </ul>

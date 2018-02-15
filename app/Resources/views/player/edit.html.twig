@@ -1,20 +1,15 @@
 {% extends 'base.html.twig' %}
-
+{% block title %}WhognaWin - Edition {{ player.name }}{% endblock %}
 {% block body %}
     <h1>Edition du joueur {{ player.name }}</h1>
 
     {{ form_start(edit_form) }}
         {{ form_widget(edit_form) }}
-        <input type="submit" value="Editer" />
+        <input class="btn btn-warning form-control" type="submit" value="Editer" />
     {{ form_end(edit_form) }}
-
-    <ul>
-        <li>
-            <a href="{{ path('player_index', { 'gender': player.gender}) }}">Retour à la liste des joueurs</a>
-        </li>
-        <li>
+            <a class="form-control btn btn-primary" href="{{ path('player_index', { 'gender': player.gender}) }}">Retour à la liste des joueurs</a>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Supprimer">
+                <input class="btn btn-danger form-control" type="submit" value="Supprimer">
             {{ form_end(delete_form) }}
         </li>
     </ul>

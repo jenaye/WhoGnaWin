@@ -1,4 +1,5 @@
 {% extends 'base.html.twig' %}
+{% block title %}WhognaWin - Création match{% endblock %}
 
 {% block body %}
     <h1>Créer un match</h1>
@@ -8,10 +9,5 @@
         <input type="submit" value="Créer" />
     {{ form_end(form) }}
     </div>
-
-    <ul>
-        <li>
-            <a href="{{ path('game_index') }}">Retour a la liste</a>
-        </li>
-    </ul>
+    <a class="form-control btn btn-primary" href="{{ path('game_index') }}">Retour a la liste</a>
 {% endblock %}

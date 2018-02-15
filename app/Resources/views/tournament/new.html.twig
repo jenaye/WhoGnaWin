@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-
+{% block title %}WhognaWin - Création d'un tournoi{% endblock %}
 {% block body %}
     <h1>Tournament creation</h1>
 
@@ -7,7 +7,5 @@
         {{ form_widget(form) }}
         <input class="form-control btn btn-primary" type="submit" value="Create" />
     {{ form_end(form) }}
-
             <a class="form-control btn btn-primary" href="{{ path('tournament_index') }}">Back to the list</a>
-
 {% endblock %}

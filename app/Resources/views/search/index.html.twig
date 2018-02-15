@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-
+{% block title %}WhognaWin - rechercher un joueur{% endblock %}
 {% block body %}
     <br/>
     <div class="alert alert-dismissible alert-warning">
@@ -10,7 +10,7 @@
 
 <form method="GET" action="{{ path('search_player_by_name_result') }}">
 
-    <legend>Recherche des matchs</legend>
+    <legend>Rechercher tous les matchs d'un joueur</legend>
     <div class="form-group">
         <input type="text" name="playerName" placeholder="Nom du joueur" class="form-control" aria-describedby="emailHelp">
         <small id="emailHelp" class="form-text text-muted">le résultat de cette recherche n'est pas enregistré</small>
