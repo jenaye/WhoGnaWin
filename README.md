@@ -29,4 +29,5 @@ bin/console do:sc:va --skip-sync
 ```
 
 
-Todo : add player vs player search bar
+Todo : add player vs player search bar,
+ mb add point for player ? to make ranked table

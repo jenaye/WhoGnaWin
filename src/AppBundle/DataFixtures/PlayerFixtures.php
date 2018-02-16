@@ -53,10 +53,16 @@ class PlayerFixtures extends Fixture
             $manager->persist($player7);
 
             $player8 = new Player();
-            $player8->setName('Une fille');
-            $player8->setAge(18);
+            $player8->setName('Wozniacki Caroline');
+            $player8->setAge(27);
             $player8->setGender('Female');
             $manager->persist($player8);
+
+            $player9 = new Player();
+            $player9->setName('Svitolina Elina');
+            $player9->setAge(23);
+            $player9->setGender('Female');
+            $manager->persist($player9);
 
             $manager->flush();
     }
