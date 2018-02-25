@@ -30,4 +30,5 @@ bin/console do:sc:va --skip-sync
 
 
 Todo : add player vs player search bar,
- mb add point for player ? to make ranked table
+       mb add point for player ? to make ranked table
+       add better search, cuz if we have 2 players with same firstname, we got status 500
