@@ -21,6 +21,11 @@ php bin/console doctrine:schema:update --force
 php bin/console doctrine:fixtures:load
 ```
 
+# Preview 
+![capture d ecran_2018-03-05_22-17-33](https://user-images.githubusercontent.com/15458329/37000213-fe9c2810-20c2-11e8-9791-c93ce48dd13d.png)
+
+![capture d ecran_2018-03-05_22-18-23](https://user-images.githubusercontent.com/15458329/37000223-051dd2d8-20c3-11e8-95ec-a94763c3407c.png)
+
 
 tips : verify entity 
 
