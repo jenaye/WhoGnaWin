@@ -9,6 +9,7 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Doctrine\ORM\EntityRepository;
+use Tetranz\Select2EntityBundle\Form\Type\Select2EntityType;
 
 
 class GameType extends AbstractType
@@ -48,7 +49,7 @@ class GameType extends AbstractType
                     'class' => 'form-control',
                 ]
             ])
-            ->add('player1', EntityType::class, [
+            ->add('player1', Select2EntityType::class, [
                 'class' => 'AppBundle\Entity\Player',
                 'attr' => [
                     'class' => 'form-control',

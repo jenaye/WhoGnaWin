@@ -38,6 +38,8 @@
     <div class="container">
         {% block body %}{% endblock %}
     </div>
-        {% block javascripts %}{% endblock %}
+        {% block javascripts %}
+            <script src="{{ asset('bundles/tetranzselect2entity/js/select2entity.js') }}"></script>
+        {% endblock %}
     </body>
 </html>
