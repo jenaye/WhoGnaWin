@@ -11,3 +11,25 @@
     </div>
     <a class="form-control btn btn-primary" href="{{ path('game_index') }}">Retour a la liste</a>
 {% endblock %}
+
+ {% block javascripts %}
+     <script
+             src="https://code.jquery.com/jquery-2.2.3.min.js"
+             integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="
+             crossorigin="anonymous"></script>
+     <script src="//cdnjs.cloudflare.com/ajax/libs/select2/3.5.4/select2.js"></script>
+     <script src="//cdnjs.cloudflare.com/ajax/libs/select2/3.5.4/select2_locale_fr.js"></script>
+     <script type="text/javascript">
+         jQuery(document).ready(function($) {
+             $field = $('#{{ form.player1.vars.id }}');
+
+             $field.select2([]);
+         });
+
+         jQuery(document).ready(function($) {
+             $field = $('#{{ form.player2.vars.id }}');
+
+             $field.select2([]);
+         });
+     </script>
+ {% endblock %}

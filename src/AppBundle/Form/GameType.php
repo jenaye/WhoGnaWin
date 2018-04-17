@@ -49,7 +49,7 @@ class GameType extends AbstractType
                     'class' => 'form-control',
                 ]
             ])
-            ->add('player1', Select2EntityType::class, [
+            ->add('player1', EntityType::class, [
                 'class' => 'AppBundle\Entity\Player',
                 'attr' => [
                     'class' => 'form-control',
