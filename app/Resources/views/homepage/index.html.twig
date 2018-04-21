@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <br class="jumbotron">
+    <hr class="my-4">
     <div class="row">
         <div class="col-md-4">
             <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
-                <div class="card-header">Gestion Matchs</div>
+                <div class="card-header">Gestion des matchs</div>
                 <div class="card-body">
                     <p class="lead">
                         <a class="btn btn-primary btn-lg" href="{{ path('game_new', { 'gender': 'male' }) }}" role="button">Ajouter un match homme</a>
@@ -22,7 +22,7 @@
         </div>
         <div class="col-md-4">
             <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
-                <div class="card-header">Gestion Joueurs</div>
+                <div class="card-header">Gestion des joueurs</div>
                 <div class="card-body">
                     <p class="lead">
                         <a class="btn btn-primary btn-lg" href="{{ path('player_new' ,{'gender': 'Male'}) }}" role="button">Ajouter un Joueur</a>
@@ -39,7 +39,7 @@
         </div>
         <div class="col-md-4">
             <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
-                <div class="card-header">Gestion Tournois</div>
+                <div class="card-header">Gestion des tournois</div>
                 <div class="card-body">
                     <p class="lead">
                         <a class="btn btn-primary btn-lg" href="{{ path('tournament_new') }}" role="button">Ajouter un tournoi</a>

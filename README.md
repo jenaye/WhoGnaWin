@@ -22,10 +22,12 @@ php bin/console doctrine:fixtures:load
 ```
 
 # Preview 
+
+![capture d ecran_2018-04-21_14-00-58](https://user-images.githubusercontent.com/15458329/39083870-33203dec-456c-11e8-9d8d-074fce5bc0f1.png)
+
 ![capture d ecran_2018-03-05_22-17-33](https://user-images.githubusercontent.com/15458329/37000213-fe9c2810-20c2-11e8-9791-c93ce48dd13d.png)
 
-![capture d ecran_2018-03-05_22-18-23](https://user-images.githubusercontent.com/15458329/37000223-051dd2d8-20c3-11e8-95ec-a94763c3407c.png)
-
+![capture d ecran_2018-04-21_14-03-04](https://user-images.githubusercontent.com/15458329/39083887-7f0f15ac-456c-11e8-9423-d9d64e66d992.png)
 
 tips : verify entity 
 
