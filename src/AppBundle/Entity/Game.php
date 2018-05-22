@@ -46,32 +46,6 @@ class Game
         $this->terrain = $terrain;
     }
 
-
-
-
-    /**
-     * @var string
-     * @Assert\NotNull()
-     * @ORM\Column(name="meteo")
-     */
-    private $meteo;
-
-    /**
-     * @return string
-     */
-    public function getMeteo()
-    {
-        return $this->meteo;
-    }
-
-    /**
-     * @param string $meteo
-     */
-    public function setMeteo($meteo)
-    {
-        $this->meteo = $meteo;
-    }
-
     /**
      * @return int
      */

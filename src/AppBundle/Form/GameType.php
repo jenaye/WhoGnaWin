@@ -25,20 +25,7 @@ class GameType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $gender = $options['gender'];
-        $builder->add('meteo', ChoiceType::class, [
-                'required' => true,
-                'multiple' => false,
-                'choices' => [
-                    'Humide' => self::HUMIDE,
-                    'Sec' => self::SEC,
-                    'Vent' => self::VENT,
-                    'Ensoleiller' => self::ENSOLEILLER,
-                ],
-                'label' => 'Metéo',
-                'attr' => [
-                    'class' => 'form-control',
-                    'placeholder' => 'Ex : humide',
-                ]])
+        $builder
             ->add('player1_score',null ,[
                 'attr' => [
                     'class' => 'form-control',

@@ -6,7 +6,7 @@
 <div class="form-group">
     {{ form_start(form) }}
         {{ form_widget(form) }}
-        <input type="submit" value="Créer" />
+        <input class="btn btn-primary" type="submit" value="Créer" />
     {{ form_end(form) }}
     </div>
     <a class="form-control btn btn-primary" href="{{ path('game_index') }}">Retour a la liste</a>
@@ -28,6 +28,18 @@
 
          jQuery(document).ready(function($) {
              $field = $('#{{ form.player2.vars.id }}');
+
+             $field.select2([]);
+         });
+
+         jQuery(document).ready(function($) {
+             $field = $('#{{ form.tournaments.vars.id }}');
+
+             $field.select2([]);
+         });
+
+         jQuery(document).ready(function($) {
+             $field = $('#{{ form.terrain.vars.id }}');
 
              $field.select2([]);
          });
